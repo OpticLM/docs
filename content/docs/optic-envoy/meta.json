@@ -1,5 +1,6 @@
 {
   "title": "Optic Envoy",
   "description": "Optic's web interface, used for remote connections.",
+  "icon": "PanelsTopLeft",
   "root": true
 }

@@ -1,0 +1,4 @@
+{
+  "title": "Add a Chat Model",
+  "pages": ["choose-llm-service", "use-model-selector"]
+}

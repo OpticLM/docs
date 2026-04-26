@@ -1,5 +1,23 @@
 {
   "title": "Optic",
   "description": "An LLM client we developed for individual users.",
-  "root": true
+  "icon": "MessagesSquare",
+  "root": true,
+  "pages": [
+    "---Introduction---",
+    "index",
+    "what-and-why-optic",
+    "manage-license",
+    "---LLM Service---",
+    "what-is-an-llm-service",
+    "add-chat-model",
+    "customize-chat-model",
+    "---Agent---",
+    "what-is-an-agent",
+    "agent-capability",
+    "subagent",
+    "---Extension---",
+    "vscode",
+    "obsidian"
+  ]
 }
