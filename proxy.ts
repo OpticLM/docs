@@ -12,6 +12,11 @@ const { rewrite: rewriteSuffix } = rewritePath(
 );
 
 export default function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  if (pathname === "/") {
+    return NextResponse.redirect(new URL("/optic", request.nextUrl));
+  }
+
   const result = rewriteSuffix(request.nextUrl.pathname);
   if (result) {
     return NextResponse.rewrite(new URL(result, request.nextUrl));
