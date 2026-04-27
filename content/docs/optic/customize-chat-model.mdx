@@ -1,3 +1,73 @@
 ---
 title: Customize a Chat Model
 ---
+
+Different models have different capabilities.
+Generally speaking, for the vast majority of models,
+Optic intelligently identifies and adapts to their capabilities.
+However, there may be times when you want to make adjustments yourself
+or manually configure the capabilities for models that Optic is not yet familiar with.
+
+If you are not familiar with these concepts, you can skip this page.
+
+## How to Customize a Model
+
+Open the Model Selector, right-click the model you want to adjust on Level 1,
+and click Edit to bring up a dialog box. Here, you can adjust various settings for the model.
+
+## Context Window
+
+The **context window** refers to the maximum length of a conversation that the model can handle.
+It is measured in tokens; you can read [this article](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them) to learn more about tokens.
+
+The **maximum output token** count refers to the longest sequence the model can generate in a single output.
+
+These settings *(which aren't really very useful)* are primarily designed to help Optic handle situations
+where the model receives excessively long inputs.
+The more you chat with the model, the longer the inputs it receives,
+and its performance will begin to decline. Therefore, it's important to be aware of the model's context length
+and keep conversations as short and concise as possible.
+
+## Modality
+
+Modality refers to the format of a model's inputs and outputs.
+Modalities include text, images, video, audio, PDFs, Office documents, rich text documents, and more.
+
+If a model supports a particular input modality, Optic will allow that modality to be used—which sounds like a given.
+
+However, this is useful because if you know a model has visual capabilities (“it can process images”)
+but find that you cannot send it an image, you may need to manually edit the model and enable the “Image” option
+in the input modality settings.
+
+Currently, Optic only supports text and image outputs. If a model outputs audio rather than text, it cannot be used in Optic at this time.
+
+Additionally, we do not currently support audio as an input modality.
+This is because many model APIs that support audio input are not yet stable,
+and we are still investigating them. We will support these features soon.
+
+## Capability: Tool Use
+
+LLMs essentially only handle text input and output, and at most involve images and files.
+To make them truly functional, a feature called “tool invocation” is required.
+
+Simply put, Optic provides various **tools** to models capable of invoking them.
+When these models receive your prompt, they invoke these tools to attempt to solve the problem,
+while Optic handles parsing, running the tools, and returning the results to the model.
+
+All you need to know is that a model must have tool invocation capabilities to perform various operations;
+otherwise, it can only be used for conversation.
+
+## Capability: Reasoning
+
+Some models begin responding immediately after receiving your message,
+while others first think about it and then respond; these models are considered to possess **reasoning** capabilities.
+
+Intuitively, models that reason before responding are generally more powerful.
+
+## Reasoning Options
+
+Some models capable of reasoning support the configuration of reasoning options.
+Some models support options such as `xhigh` (meaning “extremely high”), `high`, `medium`, and so on;
+others support setting the (theoretical) reasoning length.
+Generally, longer reasoning implies greater computational effort,
+though this does not necessarily result in better answer quality.

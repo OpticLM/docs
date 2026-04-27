@@ -12,11 +12,16 @@
     "what-is-an-llm-service",
     "add-chat-model",
     "customize-chat-model",
+    "---Chat---",
+    "use-optic",
+    "remote-access",
     "---Agent---",
     "what-is-an-agent",
     "agent-capability",
+    "working-in-workspace",
     "subagent",
     "---Extension---",
+    "lsp",
     "vscode",
     "obsidian"
   ]

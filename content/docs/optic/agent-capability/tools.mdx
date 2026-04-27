@@ -1,3 +1,37 @@
 ---
 title: Tools
 ---
+
+## What are Tools
+
+At its core, an LLM can only generate text based on the text it is fed.
+Therefore, we need a mechanism that allows the LLM to interact with the outside world;
+this mechanism is called tool invocation.
+
+Specifically, the LLM generates a special string of characters to indicate that it wants to invoke a tool;
+the LLM service and Optic then run the tool and return the results of its execution to the LLM.
+You don't need to worry about this process.
+
+For example, when an LLM wants to read a document on your computer,
+it can invoke a document-reading tool (if available),
+and that tool will return the document's content to the LLM.
+
+## Capability
+
+This means that an LLM must be capable of invoking tools in order to function as an agent.
+Currently, the vast majority of LLMs possess this capability.
+
+Please refer to [this link](/optic/customize-chat-model#capability-tool-use).
+If you add a model that Optic is not familiar with,
+you need to edit it to inform Optic that it has the ability to invoke tools,
+thereby enabling it to function as an agent.
+
+## So, how exactly do you configure tools?
+
+Optic provides some built-in tools, which we'll cover later.
+These tools (such as web search) are essential features we believe an agent should have,
+so you don't need to “install” them—simply tap the button in the row above the text input box on the main interface
+to enable them.
+
+However, for more specific scenarios—such as connecting to an app like Notion—you'll need to use the MCP or CLI.
+We'll discuss these next.

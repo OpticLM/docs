@@ -1,3 +1,56 @@
 ---
 title: Choose an LLM Service
+description: How to choose an LLM service.
 ---
+
+## Three kinds of LLM Services
+
+Essentially, LLM services can be divided into three categories:
+
+- Those that **operate the models directly**, such as OpenAI.
+  
+  For these providers, simply search for the name of a popular large language model along with “open platform” to find the portal for obtaining an API key.
+  
+  These services are the most reliable. In fact, they have access to all users' chat logs and may use them to train future models; however, these large companies generally have clear privacy and data processing policies, so you need not worry if your rights are violated—you have a vast user base standing with you.
+
+- Authorized services that **run models on private clouds**, such as Google Vertex AI, AWS Bedrock and Microsoft Azure.
+  
+  These services are also generally reliable. They are primarily chosen for their reliability and professionalism, and many enterprises start their LLM adoption journey here.
+
+- **Third-party service providers**, such as OpenRouter, OpenCode, and Ollama Cloud.
+
+  While these services sometimes run their own models, the vast majority obtain models from other LLM providers and forward them to you.
+  
+  The advantage of this approach is that you can access models from various providers in a single, unified platform. The downside is that you must place a high degree of trust in these providers to ensure they do not misuse your conversations with the large language models.
+
+## Choose the model that's right for you
+
+Generally speaking, people first decide which model they want to use, and then look for the corresponding LLM service.
+
+Google's Gemini model performs well in terms of general knowledge.
+If you need a knowledgeable model to help you solve everyday problems or for educational purposes, this is the one to choose.
+
+OpenAI's well-known ChatGPT series is more general-purpose.
+Although recent models have faced criticism regarding writing and everyday conversation,
+the latest GPT-5.5 version is showing some improvements. If you're accustomed to using ChatGPT or their programming models, you can use it.
+
+Anthropic's Claude series is renowned for its powerful programming capabilities.
+In fact, this also translates to strong logical reasoning and research capabilities.
+However, it's important to note that, according to their terms of service,
+you **cannot use Claude Pro/Max subscriptions within Optic**, and API key-based billing is quite expensive.
+
+DeepSeek is an AI lab based in China.
+If the models mentioned above are considered to be in the “zero tier,”
+DeepSeek's models rank in the “first tier.”
+The key point is that, thanks to their continuous optimization of hardware performance,
+their models are quite affordable—even cheaper than other open-source models from China—while maintaining solid capabilities, making them worth a try.
+
+Additionally, there are models from China such as GLM-5.1, Kimi K2.6, Qwen, Mimo, and MiniMax.
+If you follow these developments, you might want to give them a try.
+
+## Then select the appropriate LLM service
+
+In Optic, we've integrated multiple LLM services.
+You can simply select a model from the model selector, open the corresponding web platform, generate an API key, and enter it.
+
+If you want to know which LLM services offer a particular model, just search online—it's that easy.

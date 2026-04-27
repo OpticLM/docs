@@ -1,0 +1,80 @@
+---
+title: Use Optic
+description: Converse with an LLM using Optic
+---
+
+## Select a Chat Model
+
+Based on the previous section, you can use the model selector to choose your preferred model for the conversation.
+
+In the text box on the Optic main interface,
+there is a button with a settings icon.
+Click it to adjust various parameters, including Temperature and Top P.
+
+<Callout>
+Hover your mouse over the button to see its intent.
+</Callout>
+
+Temperature and Top P control the randomness and creativity of the generated text.
+The higher the temperature, the more random the model's output and the greater its creativity.
+The Top P mechanism dynamically selects a set of words whose cumulative probability reaches a threshold, then randomly samples from this set, thereby filtering out low-probability long-tail vocabulary and balancing creativity with fluency.
+
+In short, if you're unsure, you can leave these two options disabled;
+the LLM service will automatically use appropriate values.
+
+## Prompts and the Pure Mode
+
+To ensure that the LLM functions properly, we have pre-configured some system prompts.
+You can toggle these prompts on or off by clicking a button inside the text box.
+
+If you'd like to receive a clean response without any extra prompts,
+locate the second button to the right of the model selector at the top of the Optic main interface.
+Clicking it will enable Clean Mode. In this mode, no extra prompts are provided.
+
+<Callout title="Changing the prompt may result in additional charges" type="warn">
+Some LLM services offer a feature called “caching.”
+When you engage in multi-turn conversations with an LLM,
+previous dialogue content is retrieved from the cache, resulting in lower costs.
+However, changing the system prompt during a conversation will invalidate the cache,
+which will incur the full cost.
+
+Therefore, we do not recommend modifying these settings during a conversation.
+
+For LLM services that do not offer caching, the above recommendation does not apply.
+</Callout>
+
+## Manage Chats
+
+You can create a folder in the sidebar,
+then right-click any chat and move it into that folder.
+If a conversation is located within a Workspace, you cannot place it into a specific folder.
+
+You may have noticed that below the text box on the main interface,
+there is a selector labeled “Playground” or “Explore.”
+Changing this will alter the folder or workspace where new conversations take place.
+
+You can also right-click a chat entry in the sidebar to delete or export it.
+
+## Minimap
+
+To the left of the “Send” button in the text box,
+there is a “Collapse” button.
+Clicking it opens a view of all your sent messages,
+helping you quickly navigate through long conversations.
+
+## Branch messages
+
+When discussing a topic with an LLM, you may come up with multiple ideas and want to ask about each one separately.
+
+In such cases, if the ideas aren't closely related, you **don't necessarily** need to ask them in sequence.
+Below each LLM message (except the last one), there is a “Branch” button.
+Clicking it creates a new branch, allowing you to discuss a different topic within that branch.
+
+The advantage of this approach is that the topics discussed within each branch
+remain free from interference by other topics.
+The downside is that if there is a connection between the different topics being discussed—and that
+connection could lead to new insights—this approach stifles such inspiration.
+
+Message branching is currently **recommended** for general conversations only
+and is not recommended for Agentic work scenarios.
+

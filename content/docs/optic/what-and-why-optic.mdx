@@ -3,3 +3,89 @@ title: What and Why Optic
 description: Introducing Optic.
 icon: CircleQuestionMark
 ---
+
+Optic is an LLM app designed for individual users.
+You may have heard of many similar apps, such as ChatWise, Alma, and Arkloop—we'll compare them later.
+However, the important question is why you should choose this type of app.
+
+## For the individual
+
+Applications like ChatGPT aim to lock you into their platforms.
+As a result, the workflows you're accustomed to in the ChatGPT client
+may not work with Claude;
+you might want to combine certain features of the ChatGPT client
+with the Gemini model's powerful world knowledge capabilities,
+but this isn't possible.
+
+Furthermore, these companies offer enterprise-level clients advanced features
+such as sandboxes, managed agents, automation, and platform integrations, etc.
+Clearly, individual users deserve these benefits as well.
+However, they either lock these features away in a “black box” that
+users can't access, provide limited versions for individual users,
+or even frequently change the user experience.
+
+Some hyped products have enjoyed fleeting popularity,
+but I don't endorse that approach to using LLMs.
+I consider it unsustainable, risky, and largely driven by FOMO
+—though, they are still worthwhile attempts, and I appreciate them for that.
+
+There have also been many geeky experiments in this space,
+and they're fantastic! However, I don't think they're suitable for most ordinary people.
+
+That's why Optic's vision is to build an Agent infrastructure platform
+for individuals, empowering them to unlock the full potential of LLMs.
+Optic is still growing, and our OpticLM team is building more products around this vision.
+
+## Even more opinionated
+
+Why choose Optic over other software?
+
+First, I want to point out that the OpticLM team has a unique perspective on LLM agents.
+We built Optic based on this perspective.
+This means that Optic may not be the right fit for you.
+If you don't like Optic, that's perfectly normal—and I believe that
+it's precisely because there are software solutions with different approaches that people's needs can be better met.
+However, if you haven't formed an opinion on this yet, I sincerely recommend giving Optic a try.
+
+We have summarized Optic's values as follows:
+
+- **Functionality first.** We want Optic to be as powerful as possible so that it can compete with the agent products offered by large companies, while adhering to the following values.
+- **User Experience first.** We build clean interfaces and carefully consider what makes for the smoothest possible experience. While we can't be 100% perfect, we always keep in mind that a good user interface and user experience are just as important as functionality.
+- **Composure.** We have carefully designed Optic's Agent architecture to ensure that Agents are used in a reliable, controlled, and measured manner. We advocate for individuals to retain full control over their work, while also fully benefiting from the productivity gains offered by Agent assistance.
+- **Stateless.** By default, Optic does not include "memory" or similar features. Users have complete control over the context accepted by the Agent, and the Agent relies on the sources of facts provided by the user rather than on other mechanisms. This also means that users who require memory functionality are free to choose any memory layer and integrate it via MCP or other methods.
+- **Privacy.** There's nothing more to say about this—we do not collect any telemetry data. Clearly, this is particularly important for individuals. Please refer to our [Privacy Policy](https://www.opticlm.app/privacy) for more details.
+- **Openness.** To generate revenue, we have chosen to release Optic as closed-source commercial software. However, the source code for our base version remains available for auditing; many of Optic's infrastructure components—such as the `@opticlm/connector` for external integration and `@opticlm/streamup` for rendering LLM outputs—remain open-source under the MIT license. We also plan to contribute more to the open-source community.
+
+## Comparisons
+
+Here is a comparison of Optic with other similar products. This table will help you determine whether Optic is right for you.
+
+| Feature | Optic | [OpenAI Codex](https://openai.com/codex/) | [ChatWise](https://chatwise.app/) | [Alma](https://alma.now/) | [Arkloop](https://arkloop.io/zh) |
+| - | - | - | - | - | - |
+| Friendly to multi-LLM services | ✅ | ❌ | ✅ | ✅ | ✅ |
+| Remote access | ✅, no things like accounts needed; E2E encryption | ✅, via your ChatGPT account | ❌ | ❌ | ❌ |
+| Workspace | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Sub-agents | 🚧 | ❌ | ✅ | ✅ | ✅ |
+| VCS Integration | 🚧 | ✅ | ❌ | ✅ | ❌ |
+| In-depth LSP integration | ✅ | ✅ | ❌ | ❌ | ✅ |
+| MCP | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Agent Skills | ✅ via "instructions" | ✅ | ✅ | ✅ | ✅ |
+| Web Access | ✅ Full fetch + search ability, with LLM-friendly post-process. | ❓ | ✅ Full fetch + search ability, with LLM-friendly post-process. | ✅ Builtin. | ✅ Via services like Jina, Tavily, etc. |
+| Computer Use | 🚧 Cross-platform planned | ✅ macOS only | ❌ | ✅ macOS only | ❌ |
+| Sandbox-like permission management | 🚧 Cross-platform, high-performance native solution planned | ✅ | ✅ | ❌ | ❌ |
+| Activity Record | ❌ | ✅ | ❌ | ✅ | ❌ |
+| Automation (Workflow) | 🚧 | ✅ | ❌ | ❌ | ✅ |
+| Context Management | ✅ Compact & Message branch | ✅ Auto-compact | ❌ | ✅ RTK compression for tool outputs | ✅ **Powerful** auto-compact |
+| Cache-friendly | ✅ | ❓ | ❓ | ❓ | ✅ |
+| Image output | 🚧 | ✅ | ✅ | ✅ | ✅ |
+| Generative UI | 🚧 | ❌ | ❌ | ✅ | ✅ |
+| Memory | 🚧 Basic memory feature planned | ✅ Basic (based on files) | ❓ | ✅ Fantastic | ✅ |
+| Artifacts | ❌ | ❌ | ✅ | ✅ | ✅ |
+| Connect to IMs (OpenClaw-like) | ❌ | ❌ | ❌ | ✅ | ✅ |
+
+- ✅: the feature is available
+- ❌: the feature is not available, and not planned (considered unnecessary) for Optic
+- 🚧: planned in upcoming updates for Optic
+- ❓: unknown
+- For "in-depth LSP integration", we mean by exposing LSP (language server) interface to the Agent, enabling it to gain code-level awareness.
+

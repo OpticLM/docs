@@ -1,13 +1,28 @@
 ---
-title: Hello World
-description: Your first document
+title: Introduction
+description: Welcome to Optic Envoy.
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+Optic Envoy allows users to connect to the Optic desktop app from any browser, anywhere.
 
-## What is Next?
+## How does it work?
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
-</Cards>
+In addition to the Optic app installed on your computer, we've also deployed a web version (that's Optic Envoy).
+When you open it, you're actually opening an Optic app.
+However, we don't provide the “actual functionality” of the Optic app—that's handled by the Optic app on your computer.
+
+After pairing, the Optic desktop app and web app begin communicating using a tool called [Ably](https://ably.com/).
+Before using Ably, the two parties have already exchanged keys for end-to-end encryption,
+so Ably has no access to this information.
+
+Any actions performed in the Optic web app are equivalent to those performed in the Optic desktop app.
+This makes it ideal for using Optic on a mobile phone or other devices.
+
+## Limitations
+
+
+In Optic Envoy, due to overall bandwidth limits, you cannot upload files that are too large.
+Additionally, you cannot create workspaces or **configure** (though LLMs can use) browser-based web fetch.
+
+To use Optic Envoy, you must update the Optic desktop app to the latest version.
+We apologize but we cannot provide backward compatibility.

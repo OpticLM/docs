@@ -1,3 +1,99 @@
 ---
 title: MCP (Model Context Protocol)
 ---
+
+## Introduction to MCP
+
+[Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (a.k.a. MCP) is a protocol
+that allows people to create tools and resources for use with LLMs,
+which you can then install in applications like Optic.
+
+- MCP includes tools, resources, and more. Tools are the utilities we mentioned earlier, while resources are content that LLMs can access through certain means; Optic includes built-in tools for reading these resources. MCP also includes features such as prompts, though Optic does not currently support them.
+- **MCP servers** provide this content; for example, Notion's MCP server offers tools for interacting with Notion.
+- **MCP clients** (such as Optic) passes these tools and resources to the LLM and sends information about tool invocations back to the MCP server.
+
+Simply put, all you need to know is this: if you want an Agent to be able to interact with something called “A,”
+you need to:
+
+1. Search online for A's MCP
+2. Enter A's MCP information into Optic
+3. That's all there is to it.
+
+## Where do I add MCP?
+
+In the sidebar of the Optic app, locate “Extensions” and click it to open a dialog box.
+On the left side of the dialog box, find MCP (which is selected by default);
+this is where you manage MCP.
+
+MCPs can be divided into two main categories: remote and local, depending on where the MCP server is running.
+
+The vast majority of MCPs are “remote.” For these servers, simply click “Add”
+(this will open a drawer interface where you can configure settings),
+enter a name for identification, and then enter the **URL** of the remote MCP.
+
+Sometimes, just as using an LLM service requires an API key, you may need to configure an API key for an MCP.
+The MCP configuration interface includes a table-like section designed for this purpose.
+Simply follow the instructions provided by the MCP provider.
+
+Occasionally, remote MCP services offer a one-click login feature.
+If available, the configuration interface will display a button;
+clicking it opens a link where you can log in to your account.
+
+<Callout title="You must trust the MCP server" type="warning">
+This step could lead to a malicious attack.
+If you enter a fake MCP server address,
+the attacker might use the login process to trick you into “logging in” on the real platform,
+thereby gaining access to your account.
+
+Therefore, you must ensure that the MCP server address you enter comes from a trusted source
+and carefully verify it during the login process.
+</Callout>
+
+Some MCPs actually run locally, but they still allow you to configure them via a URL.
+For example, when you want to connect to another application running on your computer via an MCP,
+that application might provide you with an MCP URL.
+This URL actually points to your own computer, but that doesn't matter—since it asks you to enter a URL,
+you can simply configure it as if it were a remote MCP.
+
+Other MCP servers are “local.” This means they prompt you to enter a command
+(sometimes including “args,” or arguments)
+rather than a web URL. The MCP then runs as a program on your local computer.
+
+### Additional steps to configure local MCPs
+
+<Callout title="Must TRUST the local MCP server!!" type="warning">
+You need to understand that when you enter this command,
+Optic will **execute it** directly on your computer.
+
+This means that if someone impersonates another user and gives you a command that runs malicious software,
+it will execute—and we have no way of detecting it.
+
+This is why configuring the local MCP isn't so straightforward.
+</Callout>
+
+To ensure that the local MCP is only ever run at your request,
+you cannot configure it through the Optic interface:
+While there is a very small chance that the Optic interface could be compromised,
+this design prevents attackers from taking any significant actions.
+
+You need to configure it in a file. Use the button on MCP's dialog box to quickly open the file.
+In the config file, configure local MCPs like:
+
+```json
+{
+    "mcpServers": {
+        "my-local-mcp-name": {
+            "enable": true,
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-everything"
+            ]
+        }
+    }
+}
+```
+
+If you're unsure how to proceed, you can ask an LLM for help.
+However, I still recommend that in most cases, if you don't know how to configure a local MCP,
+it means you don't need or shouldn't be using this local MCP.

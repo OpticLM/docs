@@ -1,0 +1,27 @@
+---
+title: LSP (experimental)
+---
+
+<Callout type="warning" title="Experimental feature">
+This LSP integration is currently in beta. Thank you very much for your patience and feedback.
+</Callout>
+
+Connect to any language server that supports the Language Server Protocol (LSP).
+
+## Configuring in the Configuration File
+
+```json
+{
+    "lsp": {
+        "rust-analyzer": {
+            "enable": true,
+            "command": "rust-analyzer"
+        }
+    }
+}
+```
+
+## (Experimental) Using LSP Tools
+
+Optic will connect to the LSPs you have added, then automatically load and expose the available LSP tools to the Agent.
+These include features such as navigating to definitions.

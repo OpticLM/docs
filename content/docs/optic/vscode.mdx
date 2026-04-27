@@ -1,3 +1,31 @@
 ---
-title: VSCode
+title: VSCode (experimental)
 ---
+
+<Callout type="warning" title="Experimental feature">
+This VSCode extension is currently in beta. Thank you very much for your patience and feedback.
+</Callout>
+
+Connect to the VSCode language server.
+
+## Install the VSCode Extension
+
+Download the .vsix file from the Releases section of [this repository](https://github.com/OpticLM/optic-vscode),
+then select “Install from VSIX” in the VSCode Extensions panel.
+
+## Connecting to Optic
+
+Open VSCode, make sure the Optic for VSCode extension is installed,
+and ensure that VSCode is open in the same folder as your Optic Workspace.
+Open the VSCode Command Palette, type “optic,” and select the “start” option.
+
+Open the Extensions panel in the Optic's sidebar, select “Extensions,”
+and toggle the VSCode switch on.
+Optic will automatically expose the language server functionality to the Agent.
+
+## Reviewing Edits in VSCode
+
+If “Read-only” is turned off and “Skip edit review” is also turned off,
+file edits made in the Agent will be forwarded to VSCode's diff view.
+There, you can use VSCode's built-in code intelligence to review the changes and even edit the diff.
+When finished, save and close the diff view. Closing without saving means rejecting the edit.

